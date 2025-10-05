@@ -1,61 +1,47 @@
 # Loading Spinner
 
-React component (Vite + Tailwind) that renders a centered loading spinner with an optional message.
+Small, dependency-free loading spinner demo. This repo contains a tiny CSS spinner and a minimal demo page you can open directly in the browser.
 
-This repository contains a minimal demo project and a reusable `LoadingSpinner` component located at `src/component/LoadingSpinner.jsx`.
+This project is intentionally minimal — no build step required. Just open `index.html` in a browser to see the spinner.
 
-## Features
+## Files
 
-- Tiny, dependency-free spinner (uses Tailwind CSS for styling).
-- Simple API: `className` to customize container styles, `message` to show a short status message.
+- `index.html` — demo page showing the centered loading spinner and an optional message.
+- `styles.css` — spinner styles and layout.
+- `README.md` — this file.
 
-## Quick start
+## Demo
 
-Install dependencies and start the dev server:
+Open the `index.html` file in your browser (double-click or right-click → Open with...). The spinner is centered on the page and shows a short message under it.
 
-```powershell
-pnpm install
-pnpm dev
+## Usage (plain HTML)
+
+You can copy the markup and the CSS into your project. Example markup:
+
+```html
+<div class="spinner-container">
+  <div class="spinner" aria-hidden="true"></div>
+  <div class="spinner-message">Loading…</div>
+</div>
 ```
 
-Open the app at the address Vite prints (usually http://localhost:5173).
+The necessary styles live in `styles.css`. The spinner uses a simple CSS animation and works without any JavaScript.
 
-## Usage
+## Customization
 
-Import and use the component in your React app:
+- Size: change the spinner dimensions in `styles.css` (width/height and border thickness).
+- Color: update the border color values to match your theme.
+- Message: change the text in the demo or add `aria-live` attributes if you update the message dynamically.
 
-```jsx
-import LoadingSpinner from './src/component/LoadingSpinner';
+Accessibility notes
 
-function Page() {
-	return (
-		<div>
-			<LoadingSpinner message="Loading data..." />
-		</div>
-	);
-}
-
-export default Page;
-```
-
-Props
-- `className` (string, optional) — additional classes applied to the outer container.
-- `message` (string, optional) — text shown under the spinner.
-
-File of interest
-- `src/component/LoadingSpinner.jsx` — the spinner component.
-
-## Dev notes
-
-- This project uses Vite + React + Tailwind. Tailwind classes control the spinner animation and layout.
-- To produce a production build run:
-
-```powershell
-pnpm build
-```
+- The visual spinner is decorative; if your page has dynamic content loading, include accessible status updates for screen readers (for example, an `aria-live="polite"` region that announces progress).
 
 ## Contributing
 
-Feel free to open issues or PRs. Keep changes small and focused. Add examples or variants (size, color) as separate PRs.
+Small improvements are welcome: make PRs for size/color variants, add examples, or include a React/Vue component wrapper.
 
-Made with ❤️ by [Jeet Das](https://github.com/JeetDas5)
+## License & Credits
+
+Made with ❤️ by [Jeet Das](https://github.com/JeetDas5).
+
